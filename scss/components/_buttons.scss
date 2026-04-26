@@ -1,10 +1,17 @@
+@use '../base/variables' as *;
+
 .btn {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 8px 24px;
 
-  &_outline {
+  font-size: 16px;
+  line-height: 120%;
 
+  &_outline {
+    color: $color-white;
+    border: 1px solid $color-white;
+    border-radius: 100px;
   }
 }
