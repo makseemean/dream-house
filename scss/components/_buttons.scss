@@ -4,10 +4,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 24px;
+  padding: 10px 24px;
 
   font-size: 16px;
-  line-height: 120%;
+  line-height: normal;
 
   &_outline {
     color: $color-white;
