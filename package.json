@@ -3,10 +3,12 @@
   "scripts": {
     "start": "gulp",
     "watch": "gulp watch",
-    "build": "gulp build"
+    "build": "gulp build",
+    "deploy": "gulp build && gh-pages -d . -x node_modules -x .git -x .claude -x .idea -x scss -x \"js/src\""
   },
   "devDependencies": {
     "browser-sync": "^3.0.4",
+    "gh-pages": "^6.3.0",
     "gulp": "^5.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^6.0.1",
