@@ -3,13 +3,16 @@
 @use 'base/variables' as *;
 @use 'base/reset';
 @use 'base/typography';
+@use 'base/base';
 
 // Layout
 @use 'layout/header';
+@use 'layout/container';
 @use 'layout/footer';
 
 // Components
 @use 'components/buttons';
+@use 'components/nav';
 
 // Sections
 // @use 'sections/hero';
