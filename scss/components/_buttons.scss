@@ -1,7 +1,7 @@
 @use '../base/variables' as *;
 
 .btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 10px 24px;
@@ -13,5 +13,10 @@
     color: $color-white;
     border: 1px solid $color-white;
     border-radius: 100px;
+  }
+
+  &_wide {
+    padding-left: 80px;
+    padding-right: 80px;
   }
 }
