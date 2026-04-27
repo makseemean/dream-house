@@ -1,0 +1,72 @@
+@use '../base/variables' as *;
+
+.about {
+  padding-top: 116px;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    margin-bottom: 28px;
+  }
+
+  &__text {
+    font-size: 20px;
+    color: $color-white;
+    max-width: 700px;
+  }
+
+  &__video {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    video {
+      display: block;
+      flex: 1;
+      min-width: 0;
+      width: 100%;
+    }
+
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  &__item {
+    max-width: 320px;
+
+    &-title {
+      font-size: 64px;
+      color: $color-white;
+    }
+
+    &-text {
+      font-size: 32px;
+      color: $color-grey;
+    }
+
+    &_desktop {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    &_mobile {
+      display: none;
+
+      @media (max-width: 768px) {
+        display: block;
+      }
+    }
+  }
+
+}
