@@ -217,6 +217,10 @@ body {
 .home__link {
   padding: 8px 40px;
 }
+.home__promo {
+  position: relative;
+  z-index: 1;
+}
 
 .about {
   padding-top: 116px;
