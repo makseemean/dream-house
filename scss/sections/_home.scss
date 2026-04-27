@@ -61,4 +61,9 @@
   &__link {
     padding: 8px 40px;
   }
+
+  &__promo {
+    position: relative;
+    z-index: 1;
+  }
 }
