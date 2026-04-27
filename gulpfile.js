@@ -37,7 +37,7 @@ function scriptsBuild() {
 }
 
 function copyFiles() {
-  return gulp.src(['index.html', 'fonts/**/*', 'img/**/*'], { base: '.' })
+  return gulp.src(['index.html', 'fonts/**', 'img/**'], { base: '.' })
     .pipe(gulp.dest('dist'));
 }
 
