@@ -4,15 +4,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 24px;
+  padding: 8px 24px;
 
   font-size: 16px;
   line-height: normal;
+  border-radius: 100px;
 
   &_outline {
     color: $color-white;
     border: 1px solid $color-white;
-    border-radius: 100px;
   }
 
   &_filled {
@@ -21,6 +21,6 @@
   }
 
   &_wide {
-    padding: 10px 80px;
+    padding: 8px 80px;
   }
 }
