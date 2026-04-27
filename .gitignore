@@ -1,8 +1,0 @@
-node_modules
-.claude
-.idea
-
-# compiled
-css/
-js/main.min.js
-js/main.min.js.map
