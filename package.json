@@ -4,7 +4,7 @@
     "start": "gulp",
     "watch": "gulp watch",
     "build": "gulp build",
-    "deploy": "gulp build && gh-pages -d . -x node_modules -x .git -x .claude -x .idea -x scss -x \"js/src\""
+    "deploy": "gulp build && gh-pages -d dist"
   },
   "devDependencies": {
     "browser-sync": "^3.0.4",

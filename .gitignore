@@ -6,3 +6,4 @@ node_modules
 css/
 js/main.min.js
 js/main.min.js.map
+dist/

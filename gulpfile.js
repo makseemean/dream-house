@@ -17,7 +17,7 @@ function styles() {
 function stylesBuild() {
   return gulp.src('scss/main.scss')
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-    .pipe(gulp.dest('css'));
+    .pipe(gulp.dest('dist/css'));
 }
 
 function scripts() {
@@ -33,7 +33,12 @@ function scriptsBuild() {
   return gulp.src('js/src/**/*.js')
     .pipe(concat('main.min.js'))
     .pipe(terser())
-    .pipe(gulp.dest('js'));
+    .pipe(gulp.dest('dist/js'));
+}
+
+function copyFiles() {
+  return gulp.src(['index.html', 'fonts/**/*', 'img/**/*'], { base: '.' })
+    .pipe(gulp.dest('dist'));
 }
 
 function serve() {
@@ -50,5 +55,5 @@ function serve() {
 exports.styles = styles;
 exports.scripts = scripts;
 exports.watch = serve;
-exports.build = gulp.parallel(stylesBuild, scriptsBuild);
+exports.build = gulp.series(gulp.parallel(stylesBuild, scriptsBuild), copyFiles);
 exports.default = gulp.series(gulp.parallel(styles, scripts), serve);
