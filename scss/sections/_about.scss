@@ -26,23 +26,23 @@
     align-items: center;
     gap: 20px;
 
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  &__item {
+    max-width: 320px;
+
     video {
       display: block;
       flex: 1;
       min-width: 0;
       width: 100%;
     }
-
-  }
-
-  &__items {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-
-  &__item {
-    max-width: 320px;
 
     &-title {
       font-size: 64px;
@@ -54,19 +54,13 @@
       color: $color-grey;
     }
 
-    &_desktop {
-      @media (max-width: 768px) {
-        display: none;
-      }
+    &_video {
+      grid-column: span 2;
+      max-width: none;
     }
 
-    &_mobile {
-      display: none;
-
-      @media (max-width: 768px) {
-        display: block;
-      }
+    &:last-child {
+      align-self: center;
     }
   }
-
 }
