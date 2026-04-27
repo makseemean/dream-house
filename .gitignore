@@ -3,7 +3,7 @@ node_modules
 .idea
 
 # compiled
-css/
-js/main.min.js
-js/main.min.js.map
-dist/
+/css/
+/js/main.min.js
+/js/main.min.js.map
+/dist/

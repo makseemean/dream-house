@@ -4,7 +4,7 @@
     "start": "gulp",
     "watch": "gulp watch",
     "build": "gulp build",
-    "deploy": "gulp build && gh-pages -d dist"
+    "deploy": "gulp build"
   },
   "devDependencies": {
     "browser-sync": "^3.0.4",
