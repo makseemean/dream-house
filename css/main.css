@@ -129,10 +129,12 @@ body {
   border: 1px solid #ffffff;
   border-radius: 100px;
 }
+.btn_filled {
+  background-color: #ffffff;
+  color: #000000;
+}
 .btn_wide {
   padding: 10px 80px;
-  color: #000000;
-  background-color: #ffffff;
 }
 
 .menu__list {
