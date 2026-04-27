@@ -7,3 +7,13 @@ body {
   line-height: normal;
   color: $color-white;
 }
+
+.title {
+  font-weight: 400;
+  font-size: 48px;
+  color: $color-grey;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+}
