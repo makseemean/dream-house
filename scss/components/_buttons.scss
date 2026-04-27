@@ -15,8 +15,14 @@
     border-radius: 100px;
   }
 
+  &_outline {
+    color: $color-white;
+    border: 1px solid $color-white;
+    border-radius: 100px;
+  }
+
   &_wide {
-    padding-left: 80px;
-    padding-right: 80px;
+    padding: 10px 80px;
+    color: ;
   }
 }
