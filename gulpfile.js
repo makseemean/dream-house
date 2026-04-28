@@ -16,7 +16,7 @@ function styles() {
 
 function stylesBuild() {
   return gulp.src('scss/main.scss')
-    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+    .pipe(sass({ style: 'compressed' }).on('error', sass.logError))
     .pipe(gulp.dest('dist/css'));
 }
 
@@ -37,8 +37,8 @@ function scriptsBuild() {
 }
 
 function copyFiles() {
-  return gulp.src(['index.html', 'fonts/**', 'img/**'], { base: '.' })
-    .pipe(gulp.dest('dist'));
+  return gulp.src(['index.html', 'fonts/**', 'img/**'], { base: '.', encoding: false })
+    .pipe(gulp.dest('dist', { encoding: false }));
 }
 
 function serve() {
