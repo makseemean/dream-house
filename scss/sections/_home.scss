@@ -60,7 +60,6 @@
 
   &__links {
     display: flex;
-    align-items: center;
     gap: 20px;
 
     &_mobile {
@@ -84,6 +83,10 @@
 
   &__link {
     padding: 8px 40px;
+
+    @media (max-width: 768px) {
+      padding: 6px 24px;
+    }
   }
 
   &__promo {
