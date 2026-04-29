@@ -41,6 +41,22 @@ function copyFiles() {
     .pipe(gulp.dest('dist', { encoding: false }));
 }
 
+function vendor() {
+  return gulp.src([
+    'node_modules/swiper/swiper-bundle.min.js',
+    'node_modules/swiper/swiper-bundle.min.css',
+  ], { encoding: false })
+    .pipe(gulp.dest('vendor', { encoding: false }));
+}
+
+function vendorBuild() {
+  return gulp.src([
+    'node_modules/swiper/swiper-bundle.min.js',
+    'node_modules/swiper/swiper-bundle.min.css',
+  ], { encoding: false })
+    .pipe(gulp.dest('dist/vendor', { encoding: false }));
+}
+
 function serve() {
   browserSync.init({
     server: { baseDir: './' },
@@ -54,6 +70,7 @@ function serve() {
 
 exports.styles = styles;
 exports.scripts = scripts;
+exports.vendor = vendor;
 exports.watch = serve;
-exports.build = gulp.series(gulp.parallel(stylesBuild, scriptsBuild), copyFiles);
-exports.default = gulp.series(gulp.parallel(styles, scripts), serve);
+exports.build = gulp.series(gulp.parallel(stylesBuild, scriptsBuild, vendorBuild), copyFiles);
+exports.default = gulp.series(gulp.parallel(styles, scripts, vendor), serve);

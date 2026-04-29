@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     removeBodyStyles();
   }
 
-  burger.addEventListener('click', () => {
+  burger.addEventListener('click', (e) => {
+    e.stopPropagation();
     if (menu.classList.contains('menu_active')) {
       closeMenu();
     } else {
@@ -39,5 +40,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target.closest('a')) closeMenu();
   });
 
-  overlay.addEventListener('click', closeMenu);
+  document.addEventListener('click', (e) => {
+    if (!menu.classList.contains('menu_active')) return;
+    if (e.target.closest('.menu') || e.target.closest('.burger')) return;
+    closeMenu();
+  });
+
+  if (typeof Swiper !== 'undefined' && document.querySelector('.about__slider')) {
+    new Swiper('.about__slider', {
+      slidesPerView: 'auto',
+      spaceBetween: 16,
+      freeMode: true,
+      grabCursor: true,
+      breakpoints: {
+        769: {
+          spaceBetween: 20,
+        },
+      },
+    });
+  }
 });

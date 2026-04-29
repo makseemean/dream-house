@@ -2,6 +2,7 @@
 
 .about {
   padding-top: 116px;
+  overflow-x: hidden;
 
   &__top {
     display: flex;
@@ -98,6 +99,60 @@
 
     &:last-child {
       align-self: center;
+    }
+  }
+
+  &__slider {
+    margin-top: 40px;
+    padding-left: max(60px, calc((100vw - 1440px) / 2 + 60px));
+    overflow: hidden;
+
+    @media (max-width: 1024px) {
+      padding-left: 24px;
+    }
+
+    @media (max-width: 768px) {
+      padding-left: 16px;
+    }
+
+    .swiper-wrapper {
+      align-items: flex-end;
+    }
+
+    .swiper-slide {
+      width: 315px;
+
+      @media (max-width: 768px) {
+        width: calc((100vw - 16px) / 2 - 10px);
+      }
+    }
+  }
+
+  &__slide {
+    display: flex;
+    flex-direction: column;
+
+    &-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 315 / 280;
+      object-fit: cover;
+    }
+
+    &:nth-child(odd) &-img {
+      aspect-ratio: 315 / 440;
+    }
+
+    &-text {
+      color: $color-white;
+      font-size: 20px;
+      margin-bottom: 12px;
+
+      @media (max-width: 768px) {
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
     }
   }
 }
