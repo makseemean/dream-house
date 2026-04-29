@@ -30,6 +30,9 @@
     flex-direction: column;
     justify-content: flex-end;
     height: 100%;
+
+    position: relative;
+    z-index: 1;
   }
 
   &__info {
@@ -38,10 +41,9 @@
     justify-content: space-between;
     gap: 16px;
     margin-bottom: 32px;
-    flex-wrap: wrap;
 
-    @media (max-width: 768px) {
-      display: none;
+    @media (max-width: 1024px) {
+      margin-bottom: 8px;
     }
   }
 
@@ -50,12 +52,34 @@
     text-transform: uppercase;
     font-weight: 400;
     color: $color-white;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
   }
 
   &__links {
     display: flex;
     align-items: center;
     gap: 20px;
+
+    &_mobile {
+      display: none;
+      margin-left: auto;
+    }
+
+    &_desktop {
+      @media (max-width: 1024px) {
+        display: none;
+      }
+    }
+
+    &_mobile {
+      @media (max-width: 1024px) {
+        display: flex;
+        margin-top: 12px;
+      }
+    }
   }
 
   &__link {
@@ -63,7 +87,8 @@
   }
 
   &__promo {
-    position: relative;
-    z-index: 1;
+    svg {
+      height: 100%;
+    }
   }
 }
