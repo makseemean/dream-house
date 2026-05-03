@@ -46,17 +46,73 @@ document.addEventListener('DOMContentLoaded', () => {
     closeMenu();
   });
 
-  if (typeof Swiper !== 'undefined' && document.querySelector('.about__slider')) {
-    new Swiper('.about__slider', {
-      slidesPerView: 'auto',
-      spaceBetween: 16,
-      freeMode: true,
-      grabCursor: true,
-      breakpoints: {
-        769: {
-          spaceBetween: 20,
-        },
-      },
-    });
-  }
+  initAboutMarquee();
 });
+
+function initAboutMarquee() {
+  const slider = document.querySelector('.about__slider');
+  if (!slider) return;
+  const track = slider.querySelector('.about__track');
+  if (!track) return;
+
+  const originals = Array.from(track.children);
+  if (!originals.length) return;
+
+  const PX_PER_SECOND = 60;
+
+  function build() {
+    track.querySelectorAll('[data-marquee-clone]').forEach((el) => el.remove());
+
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    const originalsWidth = originals.reduce(
+      (sum, el) => sum + el.getBoundingClientRect().width,
+      0,
+    ) + gap * originals.length;
+
+    const minTrackWidth = slider.clientWidth * 2 + originalsWidth;
+    let cycles = 1;
+    while (originalsWidth * (cycles + 1) < minTrackWidth) cycles++;
+
+    for (let i = 0; i < cycles; i++) {
+      originals.forEach((el) => {
+        const clone = el.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.dataset.marqueeClone = 'true';
+        track.appendChild(clone);
+      });
+    }
+
+    track.style.setProperty('--marquee-distance', `${originalsWidth}px`);
+    track.style.setProperty('--marquee-duration', `${originalsWidth / PX_PER_SECOND}s`);
+  }
+
+  function whenImagesReady(cb) {
+    const imgs = track.querySelectorAll('img');
+    if (!imgs.length) return cb();
+    let pending = 0;
+    imgs.forEach((img) => {
+      if (img.complete) return;
+      pending++;
+      const done = () => {
+        pending--;
+        img.removeEventListener('load', done);
+        img.removeEventListener('error', done);
+        if (pending === 0) cb();
+      };
+      img.addEventListener('load', done);
+      img.addEventListener('error', done);
+    });
+    if (pending === 0) cb();
+  }
+
+  whenImagesReady(build);
+
+  let resizeTimer;
+  let lastWidth = window.innerWidth;
+  window.addEventListener('resize', () => {
+    if (window.innerWidth === lastWidth) return;
+    lastWidth = window.innerWidth;
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(build, 200);
+  });
+}
