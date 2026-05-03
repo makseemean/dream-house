@@ -47,7 +47,34 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   initAboutMarquee();
+  initServicesAccordion();
 });
+
+function initServicesAccordion() {
+  const items = document.querySelectorAll('.services__item');
+  if (!items.length) return;
+
+  items.forEach((item) => {
+    const head = item.querySelector('.services__head');
+    const body = item.querySelector('.services__body');
+    if (!head || !body) return;
+
+    head.addEventListener('click', () => {
+      const isActive = item.classList.contains('services__item_active');
+
+      items.forEach((other) => {
+        other.classList.remove('services__item_active');
+        const otherBody = other.querySelector('.services__body');
+        if (otherBody) otherBody.style.maxHeight = '';
+      });
+
+      if (!isActive) {
+        item.classList.add('services__item_active');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+}
 
 function initAboutMarquee() {
   const slider = document.querySelector('.about__slider');

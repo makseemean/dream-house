@@ -1,0 +1,75 @@
+@use '../base/variables' as *;
+
+.services {
+  &__info {
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    gap: 20px;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 20px;
+    border-bottom: 1px solid #303030;
+
+    &:first-child {
+      border-top: 1px solid #303030;
+    }
+  }
+
+  &__head {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    align-items: center;
+    width: 100%;
+    padding: 24px 0;
+    cursor: pointer;
+    color: $color-white;
+  }
+
+  &__num {
+    padding-right: 60px;
+    font-size: 24px;
+    color: #8A8A8A;
+  }
+
+  &__name {
+    color: $color-white;
+    font-size: 24px;
+    text-align: left;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+
+  &__body {
+    grid-column: 2 / 3;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+  }
+
+  &__content {
+    max-width: 620px;
+    padding: 0 0 24px;
+    color: #8A8A8A;
+    font-size: 16px;
+  }
+
+  &__item_active {
+    .services__icon {
+      transform: rotate(45deg);
+    }
+  }
+}
