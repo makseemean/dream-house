@@ -7,3 +7,11 @@ html {
 body {
   background-color: #0c0c0c;
 }
+
+.section {
+  padding-top: $header-height-desktop;
+
+  @media (max-width: 840px) {
+    padding-top: $header-height-mobile;
+  }
+}
