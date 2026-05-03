@@ -102,7 +102,7 @@
   }
 
   &__slider {
-    margin-top: 40px;
+    margin-top: 60px;
     padding-left: max(60px, calc((100vw - 1440px) / 2 + 60px));
     overflow: hidden;
 
@@ -112,6 +112,7 @@
 
     @media (max-width: 768px) {
       padding-left: 16px;
+      margin-top: 80px;
     }
   }
 
