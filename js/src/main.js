@@ -85,7 +85,7 @@ function initAboutMarquee() {
   const originals = Array.from(track.children);
   if (!originals.length) return;
 
-  const PX_PER_SECOND = 60;
+  const PX_PER_SECOND = 35;
 
   function build() {
     track.querySelectorAll('[data-marquee-clone]').forEach((el) => el.remove());
