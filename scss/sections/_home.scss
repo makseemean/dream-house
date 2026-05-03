@@ -7,9 +7,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  height: 100svh;
 
   @media (max-width: 768px) {
-    height: 94vh;
+    height: 100svh;
   }
 
   padding-bottom: 20px;
