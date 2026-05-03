@@ -8,6 +8,10 @@
   background-size: cover;
   height: 100vh;
 
+  @media (max-width: 768px) {
+    height: 94vh;
+  }
+
   padding-bottom: 20px;
 
   &::after {
