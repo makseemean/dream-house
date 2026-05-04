@@ -14,10 +14,10 @@
   }
 
   &__item {
-    padding-top: 20px;
     border-top: 1px solid #89867C;
 
     &:last-child {
+      padding-bottom: 20px;
       border-bottom: 1px solid #89867C;
     }
   }
@@ -29,20 +29,16 @@
     flex-wrap: wrap;
     gap: 8px;
     width: 100%;
-    padding: 0;
     background: none;
     border: none;
     color: inherit;
     text-align: left;
     cursor: pointer;
-    margin-bottom: 20px;
+    padding-top: 20px;
 
     @media (max-width: 1024px) {
       margin-bottom: 12px;
     }
-  }
-
-  &__item-name {
   }
 
   &__item-meta {
