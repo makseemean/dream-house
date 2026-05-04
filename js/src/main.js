@@ -63,10 +63,13 @@ function initProjectsAccordion() {
     head.addEventListener('click', () => {
       const isActive = item.classList.contains('projects__item_active');
 
-      if (isActive) {
-        item.classList.remove('projects__item_active');
-        body.style.maxHeight = '';
-      } else {
+      items.forEach((other) => {
+        other.classList.remove('projects__item_active');
+        const otherBody = other.querySelector('.projects__item-body');
+        if (otherBody) otherBody.style.maxHeight = '';
+      });
+
+      if (!isActive) {
         item.classList.add('projects__item_active');
         body.style.maxHeight = body.scrollHeight + 'px';
       }
