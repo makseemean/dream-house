@@ -22,12 +22,20 @@
     }
   }
 
-  &__item-top {
+  &__item-head {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 8px;
+    width: 100%;
+    padding: 0;
+    background: none;
+    border: none;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    margin-bottom: 20px;
 
     @media (max-width: 1024px) {
       margin-bottom: 12px;
@@ -35,6 +43,19 @@
   }
 
   &__item-name {
+  }
+
+  &__item-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__item-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
   }
 
   &__item-title {
@@ -56,41 +77,55 @@
     }
   }
 
-  &__item-body {
-    display: grid;
-    grid-template-columns: minmax(0, .55fr) minmax(0, 1fr);
-    align-items: center;
-    gap: 28px;
-
-    @media (max-width: 1024px) {
-      gap: 12px;
-      grid-template-columns: minmax(0, 1fr);
-    }
-  }
-
   &__item-descr {
     color: #aaaaaa;
     font-size: 16px;
+
+    @media (max-width: 840px) {
+      grid-column: 1 / -1;
+    }
 
     @media (max-width: 768px) {
       font-size: 14px;
     }
   }
 
-  &__item-gallery {
-    display: flex;
+  &__item-preview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    min-width: 0;
+    align-items: center;
 
-    @media (max-width: 1024px) {
-      margin-bottom: 12px;
+    @media (max-width: 840px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item-body {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+  }
+
+  &__item-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-items: center;
+    padding-top: 20px;
+
+    @media (max-width: 840px) {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   &__item-img {
-    width: 100%;
-    height: auto;
-    min-width: 0;
-    object-fit: cover;
+
+  }
+
+  &__item_active {
+    .projects__item-icon {
+      transform: rotate(180deg);
+    }
   }
 }

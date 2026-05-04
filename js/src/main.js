@@ -48,7 +48,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initAboutMarquee();
   initServicesAccordion();
+  initProjectsAccordion();
 });
+
+function initProjectsAccordion() {
+  const items = document.querySelectorAll('.projects__item');
+  if (!items.length) return;
+
+  items.forEach((item) => {
+    const head = item.querySelector('.projects__item-head');
+    const body = item.querySelector('.projects__item-body');
+    if (!head || !body) return;
+
+    head.addEventListener('click', () => {
+      const isActive = item.classList.contains('projects__item_active');
+
+      if (isActive) {
+        item.classList.remove('projects__item_active');
+        body.style.maxHeight = '';
+      } else {
+        item.classList.add('projects__item_active');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+}
 
 function initServicesAccordion() {
   const items = document.querySelectorAll('.services__item');
